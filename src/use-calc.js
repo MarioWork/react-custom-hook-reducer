@@ -20,7 +20,7 @@ const useCalc = () => {
         'result': 0,
     };
 
-    const [result, dispatch] = useReducer(reducer, initialState);
+    const [{ result }, dispatch] = useReducer(reducer, initialState);
 
 
     return {

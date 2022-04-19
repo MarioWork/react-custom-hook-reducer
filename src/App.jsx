@@ -15,7 +15,7 @@ const App = () => {
     <>
       <input type="number" onChange={(e) => setN1(e.target.value)} />
       <input type="number" onChange={(e) => setN2(e.target.value)} />
-      {result.result}
+      {result}
     </>
   );
 };
