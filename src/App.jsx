@@ -1,21 +1,21 @@
-import { useEffect, useState } from "react";
 import useCalc from "./use-calc";
+import { OPERATIONS } from "./operations-type";
 
 const App = () => {
-  const [n1, setN1] = useState(0);
-  const [n2, setN2] = useState(0);
-
-  const { result, sum } = useCalc();
-
-  useEffect(() => {
-    sum(n1, n2);
-  }, [n1, n2, sum]);
+  const { result, operation, changeN1, changeN2, changeOperation } = useCalc();
 
   return (
     <>
-      <input type="number" onChange={(e) => setN1(e.target.value)} />
-      <input type="number" onChange={(e) => setN2(e.target.value)} />
-      {result}
+      <input type="number" onChange={(e) => changeN1(e.target.value)} />
+      <input type="number" onChange={(e) => changeN2(e.target.value)} />
+      <select
+        value={operation}
+        onChange={(e) => changeOperation(e.target.value)}
+      >
+        <option value={OPERATIONS.SUM}>Add</option>
+        <option value={OPERATIONS.SUBTRACT}>Subtract</option>
+      </select>
+      result = {result}
     </>
   );
 };
